@@ -1,0 +1,65 @@
+<div class="row animated fadeIn fast"
+     *ngIf="cargando">
+    <div class="col-12">
+        
+        <div class="alert alert-info text-center">
+          <h4 class="alert-heading">Cargando</h4>
+          <i class="fa fa-spin fa-refresh fa-2x"></i>
+          <p class="mb-0">Por favor espere</p>
+        </div>
+
+    </div>
+</div> 
+ <h4 class="card-title">Total de donaciones registradas ({{ totalDonaciones }})</h4>
+
+<form class="row g-3"
+[formGroup]="donacionespublicasForm"
+(submit)="GenerarDonacion()">    
+  <div class="form-group col-md-3 m-t-20">
+    <label for="nombreentidad" class="form-label">Nombre de la entidad:</label>
+    <input type="text" formControlName="nombreentidad" id="nombreentidad"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="representante" class="form-label">Nombre Representante:</label>
+    <input type="text" formControlName="representante" id="apellidos"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="apellidos" class="form-label">Tipo de Documento:</label>
+    <select class="form-control "  formControlName="tipodocumento">
+        <option value="" selected disabled hidden>Selecciona</option>
+        <option>C.C</option>
+        <option>C.Extranjeria</option>
+        <option>Pasaporte</option>       
+    </select>
+   </div>
+   <div class="form-group col-md-3 m-t-20">
+    <label for="numerodocumento" class="form-label">Numero de documento:</label>
+    <input type="text" formControlName="numerodocumento" id="numerodocumento"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="celular" class="form-label">Celular:</label>
+    <input type="text" formControlName="celular" id="celular"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="email" class="form-label">E-mail:</label>
+    <input type="text" formControlName="email" id="email"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="tipodonacion" class="form-label">Tipo Donacion:</label>
+    <input type="text" formControlName="tipodonacion" id="tipodonacion"  class="form-control"  >
+  </div>
+   <div class="form-group col-md-3 m-t-20">
+    <label for="cantidad" class="form-label">Cantidad:</label>
+    <input type="text" formControlName="cantidad" id="cantidad"  class="form-control"  >
+  </div> 
+  
+  <div class="form-floating col-12">
+    <label for="floatingTextarea">Detalles</label>
+    <textarea class="form-control" formControlName="detalles" placeholder="Coloca los detalles de " id="floatingTextarea"></textarea>
+  </div>
+  <div class="col-12 p-3">
+    <button type="submit" class="btn btn-primary">Agregar donación</button>
+  </div>
+  </form>
+.
+

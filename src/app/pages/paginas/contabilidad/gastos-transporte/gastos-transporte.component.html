@@ -1,0 +1,85 @@
+<div class="row animated fadeIn fast"
+     *ngIf="cargando">
+    <div class="col-12">        
+        <div class="alert alert-info text-center">
+          <h4 class="alert-heading">Cargando</h4>
+          <i class="fa fa-spin fa-refresh fa-2x"></i>
+          <p class="mb-0">Por favor espere</p>
+        </div>
+    </div>
+</div> 
+<h4 class="card-title">Total de Vehiculos registrados ({{ totalTransporte }})</h4>
+<form class="row g-3"
+[formGroup]="transporteForm"
+(submit)="GenerarTransporte()">    
+  <div class="form-group col-md-3 m-t-20">
+    <label for="nombres" class="form-label">Nombres:</label>
+    <input type="text" formControlName="nombres" id="nombres"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="apellidos" class="form-label">Apellidos:</label>
+    <input type="text" formControlName="apellidos" id="apellidos"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="apellidos" class="form-label">Tipo de Documento:</label>
+    <select class="form-control "  formControlName="tipodocumento">
+        <option value="" selected disabled hidden>Selecciona</option>
+        <option>C.C</option>
+        <option>C.Extranjeria</option>
+        <option>Pasaporte</option>       
+    </select>
+   </div>
+   <div class="form-group col-md-3 m-t-20">
+    <label for="numerodocumento" class="form-label">Numero de documento:</label>
+    <input type="text" formControlName="numerodocumento" id="numerodocumento"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="celular" class="form-label">Celular:</label>
+    <input type="text" formControlName="celular" id="celular"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="email" class="form-label">E-mail:</label>
+    <input type="text" formControlName="email" id="email"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="tipovehiculo" class="form-label">Tipo de Vehiculo:</label>
+    <select class="form-control "  formControlName="tipovehiculo">
+        <option value="" selected disabled hidden>Selecciona</option>
+        <option>Automovil Particular</option>
+        <option>Automovil Publico</option>
+        <option>Motocicleta</option> 
+        <option>Bus o Buseta</option>
+    </select>
+   </div>
+   <div class="form-group col-md-3 m-t-20">
+    <label for="placa" class="form-label">Placa:</label>
+    <input type="text" formControlName="placa" id="placa"  class="form-control"  >
+  </div> 
+  <div class="form-group col-md-3 m-t-20">
+    <label for="cantidad" class="form-label">Cantidad:</label>
+    <input type="text" formControlName="cantidad" id="cantidad"  class="form-control"  >
+  </div> 
+  <div class="form-group col-md-3 m-t-20">
+    <label for="direccion" class="form-label">Direccion:</label>
+    <input type="text" formControlName="direccion" id="direccion"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="metodo" class="form-label">Metodo:</label>
+    <select class="form-control "  formControlName="metodo">
+        <option value="" selected disabled hidden>Selecciona</option>
+        <option>Efectivo</option>
+        <option>Cheque</option>
+        <option>transacción</option> 
+        <option>Bonos</option>
+        <option>Otro</option>
+    </select>
+   </div>
+  <div class="form-floating">
+    <label for="floatingTextarea">Detalles</label>
+    <textarea class="form-control" formControlName="detalles" placeholder="Coloca los detalles de " id="floatingTextarea"></textarea>
+  </div>
+  <div class="col-12 p-3">
+    <button type="submit" class="btn btn-primary">Agregar Vehiculo</button>
+  </div>
+  </form>
+.

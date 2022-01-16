@@ -1,0 +1,64 @@
+<div class="row animated fadeIn fast"
+     *ngIf="cargando">
+    <div class="col-12">
+        
+        <div class="alert alert-info text-center">
+          <h4 class="alert-heading">Cargando</h4>
+          <i class="fa fa-spin fa-refresh fa-2x"></i>
+          <p class="mb-0">Por favor espere</p>
+        </div>
+
+    </div>
+</div> 
+ <h4 class="card-title">Total de donaciones registradas ({{ totalActosPublicos }})</h4>
+
+<form class="row g-3"
+[formGroup]="ActosPublicosForm"
+(submit)="GenerarActosPublicos()"> 
+   
+  <div class="form-group col-md-3 m-t-20">
+    <label for="nombreevento" class="form-label">Nombre del Evento:</label>
+    <input type="text" formControlName="nombreevento" id="nombreevento"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="lugarvento" class="form-label">Lugar del Evento:</label>
+    <input type="text" formControlName="lugarvento" id="lugarvento"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="organizador" class="form-label">Organizador:</label>
+    <input type="text" formControlName="organizador" id="organizador"  class="form-control"  >
+  </div>
+   <div class="form-group col-md-3 m-t-20">
+    <label for="numerodocumento" class="form-label">Numero de documento:</label>
+    <input type="text" formControlName="numerodocumento" id="numerodocumento"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="celular" class="form-label">Celular:</label>
+    <input type="text" formControlName="celular" id="celular"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="email" class="form-label">E-mail:</label>
+    <input type="text" formControlName="email" id="email"  class="form-control"  >
+  </div>
+  
+   <div class="form-group col-md-3 m-t-20">
+    <label for="fechaevento" class="form-label">Fecha del evento:</label>
+    <input type="date" formControlName="fechaevento" id="fechaevento"  class="form-control"  >
+  </div> 
+  <div class="form-group col-md-3 m-t-20">
+    <label for="cantidad" class="form-label">Cantidad Reaudada:</label>
+    <input type="text" formControlName="fechaevento" id="fechaevento"  class="form-control"  >
+  </div> 
+  <div class="form-floating  col-12">
+      <label for="floatingTextarea2">Detalles</label>
+    <textarea class="form-control" id="floatingTextarea2" formControlName="detalles" style="height: 100px"></textarea>
+  </div>
+  
+  <div class="col-12 p-3">
+    <button type="submit"    
+     class="btn btn-primary">Agregar</button>
+  </div>
+  </form>
+.
+
+

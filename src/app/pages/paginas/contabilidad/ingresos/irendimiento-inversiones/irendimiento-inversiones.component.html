@@ -1,0 +1,61 @@
+<div class="row animated fadeIn fast"
+     *ngIf="cargando">
+    <div class="col-12">
+        
+        <div class="alert alert-info text-center">
+          <h4 class="alert-heading">Cargando</h4>
+          <i class="fa fa-spin fa-refresh fa-2x"></i>
+          <p class="mb-0">Por favor espere</p>
+        </div>
+
+    </div>
+</div> 
+ <h4 class="card-title">Total de Rendimientos registrados ({{ totalRendimientos }})</h4>
+
+<form class="row g-3"
+[formGroup]="rendimientosForm"
+(submit)="GenerarRendimiento()">    
+  <div class="form-group col-md-3 m-t-20">
+    <label for="nombredelainversion" class="form-label">Nombre dela inversion:</label>
+    <input type="text" formControlName="nombredelainversion" id="nombredelainversion"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="valorinvertido" class="form-label">Valor invertido:</label>
+    <input type="number" formControlName="valorinvertido" id="valorinvertido"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="fechainversion" class="form-label">Fecha Inversion:</label>
+    <input type="date" formControlName="fechainversion" id="fechainversion"  class="form-control"  >
+  </div>
+   <div class="form-group col-md-3 m-t-20">
+    <label for="valorganado" class="form-label">Valor Ganado:</label>
+    <input type="number" formControlName="valorganado" id="numerodocumento"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="responsable" class="form-label">Responsable:</label>
+    <input type="text" formControlName="responsable" id="responsable"  class="form-control">
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="documento" class="form-label">Documento:</label>
+    <input type="text" formControlName="documento" id="documento"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="telefono" class="form-label">Telefonon:</label>
+    <input type="text" formControlName="telefono" id="telefono"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="email" class="form-label">E-mail:</label>
+    <input type="text" formControlName="email" id="email"  class="form-control"  >
+  </div>
+  <div class="form-group col-md-3 m-t-20">
+    <label for="detalles" class="form-label">Detalles:</label>
+    <input type="text" formControlName="detalles" id="detalles"  class="form-control"  >
+  </div>
+   
+  <div class="col-12 p-3">
+    <button type="submit" 
+    [disabled]="rendimientosForm.invalid"class="btn btn-primary">Ingresar Rendimiento</button>
+  </div>
+  </form>
+.
+

@@ -1,0 +1,108 @@
+
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                
+                <input type="text"
+                        class="form-control"
+                        placeholder="Buscar usuario..."
+                        (keyup)="buscar( txtTermino.value )"
+                        #txtTermino/>
+                                </div>
+        </div>
+    </div>
+</div> 
+
+<div class="row animated fadeIn fast"
+    *ngIf="cargando">
+    <div class="col-12">        
+        <div class="alert alert-info text-center">
+          <h4 class="alert-heading">Cargando</h4>
+          <i class="fa fa-spin fa-refresh fa-2x"></i>
+          <p class="mb-0">Por favor espere</p>
+        </div>
+
+    </div>
+</div> 
+
+<div class="row"
+    *ngIf="!cargando">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-8" *ngIf="cantidadVotantes">
+                        <h4 class="card-title">Votantes </h4>
+                        <h6 class="card-subtitle">
+                            Votantes Registrados
+                        </h6>
+                        
+                    </div>
+                    <div class="col-8" *ngIf="!cantidadVotantes">
+                        <h4 class="card-title">No hay votantes registrados  </h4>
+                        <h6 class="card-subtitle">
+                            Ingresa un votante
+                        </h6>                        
+                    </div>
+                    <div class="col" *ngIf="!cantidadVotantes">
+                        <div class="text-right">
+                            <a class="btn btn-primary"
+                               routerLink="/dashboard/InscribirVotantes">
+                                <i class="fa fa-hospital-o"></i> 
+                                Ingresa un votante 
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="table-responsive" *ngIf="cantidadVotantes" >
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                
+                                <th class="text-center text-uppercase" >Nombres</th>
+                                <th class="text-center text-uppercase" >Apellidos</th>
+                                <th class="text-center text-uppercase" >Numero documento</th>
+                                <th class="text-center text-uppercase">Celular</th>
+                                <th class="w100 text-nowrap text-center text-uppercase">Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let votante of votantes">                                
+                                <td>
+                                {{votante.nombres}} 
+                                </td>
+                                <td>
+                                {{votante.apellidos}} 
+                                </td>
+                                <td>
+                                {{votante.numerodocumento}} 
+                                </td> 
+                                <td>
+                                {{votante.celular}} 
+                                </td>                             
+                                <td class="text-nowrap text-center " >                                     
+                                     <button class="cursor btn btn-danger m-2" 
+                                        data-toggle="tooltip" 
+                                        data-original-title="Borrar"
+                                        (click)="borrarVotante(votante._id )"> 
+                                         Borrar Votante
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+        <div *ngIf="txtTermino.value.length === 0">
+            <button (click)="cambiarPagina(-5)" class="btn btn-secondary">Anteriores</button>
+            &nbsp;
+            <button (click)="cambiarPagina(5)" class="btn btn-secondary">Siguientes</button>
+        </div>
+        </div>
+    </div>
+</div>
